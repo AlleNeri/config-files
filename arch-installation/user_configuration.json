@@ -1,0 +1,55 @@
+{
+    "HSM": null,
+    "__separator__": null,
+    "additional-repositories": [],
+    "archinstall-language": "Italian",
+    "audio": "pipewire",
+    "bootloader": "systemd-bootctl",
+    "config_version": "2.5.1",
+    "debug": false,
+    "desktop-environment": "xfce4",
+    "gfx_driver": "VMware / VirtualBox (open-source)",
+    "harddrives": [
+        "/dev/sda"
+    ],
+    "hostname": "arch-linux",
+    "kernels": [
+        "linux-zen"
+    ],
+    "keyboard-layout": "it",
+    "mirror-region": {
+        "Italy": {
+            "http://archlinux.mirror.garr.it/archlinux/$repo/os/$arch": true,
+            "http://mirror.spazioincloud.it/archlinux/$repo/os/$arch": true,
+            "https://archmirror.it/repos/$repo/os/$arch": true,
+            "https://mirror.spazioincloud.it/archlinux/$repo/os/$arch": true
+        }
+    },
+    "nic": {
+        "dhcp": true,
+        "dns": null,
+        "gateway": null,
+        "iface": null,
+        "ip": null,
+        "type": "iso"
+    },
+    "no_pkg_lookups": false,
+    "ntp": true,
+    "offline": false,
+    "packages": [
+        "vim",
+        "git"
+    ],
+    "parallel downloads": 0,
+    "profile": {
+        "path": "/usr/lib/python3.10/site-packages/archinstall/profiles/desktop.py"
+    },
+    "save_config": null,
+    "script": "guided",
+    "silent": false,
+    "swap": true,
+    "sys-encoding": "UTF-8",
+    "sys-language": "it_IT.UTF-8",
+    "timezone": "Europe/Rome",
+    "version": "2.5.1"
+}
