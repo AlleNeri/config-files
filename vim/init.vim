@@ -15,12 +15,12 @@ call plug#begin()
 	Plug 'https://github.com/tpope/vim-surround'
 	Plug 'https://github.com/vim-airline/vim-airline'
 	Plug 'https://github.com/preservim/nerdtree'
-	Plug 'https://github.com/tc50cal/vim-terminal'
 	Plug 'https://github.com/neoclide/coc.nvim'
 	Plug 'https://github.com/ryanoasis/vim-devicons'
 	Plug 'https://github.com/lukas-reineke/indent-blankline.nvim'
 	Plug 'https://github.com/nvim-tree/nvim-web-devicons'
 	Plug 'https://github.com/romgrk/barbar.nvim'
+	Plug 'https://github.com/kassio/neoterm'
 call plug#end()
 
 "NEDTree
