@@ -18,6 +18,7 @@ call plug#begin()
 	Plug 'https://github.com/neoclide/coc.nvim'
 	Plug 'https://github.com/ryanoasis/vim-devicons'
 	Plug 'https://github.com/lukas-reineke/indent-blankline.nvim'
+	Plug 'https://github.com/catppuccin/nvim', { 'as': 'catppuccin' }
 	Plug 'https://github.com/nvim-tree/nvim-web-devicons'
 	Plug 'https://github.com/romgrk/barbar.nvim'
 	Plug 'https://github.com/kassio/neoterm'
@@ -67,3 +68,7 @@ nnoremap <silent>	 <M-Del> <Cmd>BufferClose<CR>
 "markdown-preview-enhanced
 " open markdown preview
 nnoremap <silent>	 <M-m> :CocCommand markdown-preview-enhanced.openPreview<CR>
+
+"catppuccin
+" theme
+colorscheme catppuccin-mocha
