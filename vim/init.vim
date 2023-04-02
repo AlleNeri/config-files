@@ -22,6 +22,7 @@ call plug#begin()
 	Plug 'https://github.com/nvim-tree/nvim-web-devicons'
 	Plug 'https://github.com/romgrk/barbar.nvim'
 	Plug 'https://github.com/kassio/neoterm'
+	Plug 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'}
 call plug#end()
 
 "NEDTree
