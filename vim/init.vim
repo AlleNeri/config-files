@@ -72,3 +72,17 @@ nnoremap <silent>	 <M-m> :CocCommand markdown-preview-enhanced.openPreview<CR>
 "catppuccin
 " theme
 colorscheme catppuccin-mocha
+
+"indent-blankline
+" space and end-of-line
+lua << EOF
+	vim.opt.list = true
+	vim.opt.listchars:append "space:⋅"
+	vim.opt.listchars:append "eol:↴"
+
+	require("indent_blankline").setup {
+		space_char_blankline = " ",
+		show_current_context = true,
+		show_current_context_start = true,
+	}
+EOF
