@@ -23,6 +23,7 @@ call plug#begin()
 	Plug 'https://github.com/romgrk/barbar.nvim'
 	Plug 'https://github.com/kassio/neoterm'
 	Plug 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'}
+	Plug 'https://github.com/numToStr/FTerm.nvim'
 call plug#end()
 
 "NEDTree
@@ -70,13 +71,25 @@ nnoremap <silent>	 <M-Del> <Cmd>BufferClose<CR>
 " open markdown preview
 nnoremap <silent>	 <M-m> :CocCommand markdown-preview-enhanced.openPreview<CR>
 
+
 "catppuccin
 " theme
 colorscheme catppuccin-mocha
 
-"indent-blankline
-" space and end-of-line
+
+""neovide
+"" transparency
+let g:neovide_transparency=0.9
+
+
+""FTerm
+"" shortchut for terminal
+nnoremap <silent>	<M-t> :Terminal<CR>
+
+
 lua << EOF
+	--indent-blankline
+	-- space and end-of-line
 	vim.opt.list = true
 	vim.opt.listchars:append "space:⋅"
 	vim.opt.listchars:append "eol:↴"
@@ -86,4 +99,21 @@ lua << EOF
 		show_current_context = true,
 		show_current_context_start = true,
 	}
+
+	--FTerm
+	-- setup
+	require("FTerm").setup({
+		border="double",
+		dimensions={
+			height=0.9,
+			width=0.9,
+		},
+	})
+
+	-- creating a command to toggle the terminal
+	vim.api.nvim_create_user_command(
+		"Terminal",
+		require("FTerm").toggle,
+		{ bang=true }
+	)
 EOF
