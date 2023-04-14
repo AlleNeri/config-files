@@ -11,6 +11,10 @@
 :vmap <Tab> >
 :vmap <S-Tab> <
 
+"Temp
+" autocmd who generate tags for a specific project
+:autocmd BufWritePost ~/git/Pandas-/*.{c,j} silent !ctags -R .
+
 call plug#begin()
 	Plug 'https://github.com/tpope/vim-surround'
 	Plug 'https://github.com/vim-airline/vim-airline'
@@ -101,15 +105,6 @@ lua << EOF
 	}
 
 	--FTerm
-	-- setup
-	require("FTerm").setup({
-		border="double",
-		dimensions={
-			height=0.9,
-			width=0.9,
-		},
-	})
-
 	-- creating a command to toggle the terminal
 	vim.api.nvim_create_user_command(
 		"Terminal",
