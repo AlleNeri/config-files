@@ -1,0 +1,113 @@
+{
+	"layer": "top",
+	//"modules-left": ["custom/launcher","custom/media","tray"],
+	"modules-left": ["custom/launcher","custom/updates","custom/wallpaper","custom/power"],
+	//"modules-center": ["river/tags"],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": ["network","cpu","memory","temperature","backlight","wireplumber","battery","clock"],
+	
+	"wireplumber": {
+		"tooltip": false,
+		"max-volume": 100,
+		//"scroll-step": 5,
+		"scroll-step": 1.0,
+		"format": "{icon} {volume}%",
+		"format-muted": "",
+		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format-icons": {
+			"default": ["", "", ""]
+		}
+	},
+	"network": {
+        	"tooltip-format": "{ifname} via {gwaddr}",
+		"format-wifi": "  {essid} ({signalStrength}%)",
+		"format-ethernet": "{ipaddr}/{cidr} ",
+        	"format-linked": "{ifname} (No IP) ⚠",
+        	"format-disconnected": "Disconnected ⚠",
+        	"format-alt": "{ifname}: {ipaddr}/{cidr}"
+	},
+	"backlight": {
+		"tooltip": false,
+		"format": " {percent}% {icon}",
+		"format-icons": ["", "", "", "", "", "", "", "", ""],
+		"interval":1
+	},
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+	"tray":{
+		"icon-size":18,
+		"spacing": 10
+	},
+    "clock": {
+    	"format": "{: %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d/%m/%Y}"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": " {}%",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 20,
+        "format": " {}%",
+        "max-length": 10
+    },
+    "custom/media": {
+        "interval": 30,
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 20,
+        "format-icons": {
+            "spotify": " ",
+            "default": " "
+        },
+        "escape": true,
+        "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
+        "on-click": "playerctl play-pause"
+    },
+    "custom/launcher":{
+        "format": " ",
+        "on-click": "wofi --show drun",
+        "on-click-right": "killall wofi"
+    },
+    "custom/power":{
+        "format": " ",
+	"tooltip-format": "Logout ",
+	"on-click": "swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color bb00cc --key-hl-color 880033 --line-color 00000000 --inside-color 00000088 --separator-color 00000000 --fade-in 0.1",
+        //"on-click": "bash ~/.config/wofi/leave/leave.sh",
+    },
+    "custom/updates":{
+        "format": "{} Update(s)",
+        "exec": "checkupdates-with-aur | wc -l",
+        //"exec-if": "[[ $(checkupdates-with-aur | wc -l) != 0 ]]",
+        "interval": 15,
+        "on-click": "kitty paru"
+	//"on-click": "alacritty -e paru -Syu && notify-send 'The system has been updated' "
+    },
+    "temperature": {
+        "critical-threshold": 75,
+        "format": "{temperatureC}°C ",
+    },
+    "hyprland/workspaces": {
+	"format": "{id}: {icon}",
+	"format-icons": {
+		"active": "",
+		"default": ""
+	},
+    },
+    //"custom/wallpaper":{
+    //    "format":" ",
+    //    "on-click": "bash ~/.config/system_scripts/pkill_bc"
+    //}
+}

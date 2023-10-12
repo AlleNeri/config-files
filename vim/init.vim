@@ -7,6 +7,7 @@
 :set softtabstop=4
 :set mouse=a
 :set autochdir
+:set clipboard+=unnamedplus
 
 :vmap <Tab> >
 :vmap <S-Tab> <
@@ -28,6 +29,7 @@ call plug#begin()
 	Plug 'https://github.com/kassio/neoterm'
 	Plug 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'}
 	Plug 'https://github.com/numToStr/FTerm.nvim'
+	Plug 'https://github.com/github/copilot.vim'
 call plug#end()
 
 "NEDTree
@@ -85,6 +87,10 @@ colorscheme catppuccin-mocha
 "" transparency
 let g:neovide_transparency=0.9
 
+"" font
+"" set guifont=FiraCode\ NF:h16
+set guifont=Source\ Code\ Pro:h9
+
 
 ""FTerm
 "" shortchut for terminal
@@ -111,4 +117,15 @@ lua << EOF
 		require("FTerm").toggle,
 		{ bang=true }
 	)
+
+	--TreeSitter
+	require'nvim-treesitter.configs'.setup {
+		highlight = {
+			enable = true,
+			additional_vim_regex_highlighting = false,
+		},
+		indent = {
+			enable = true
+		}
+	}
 EOF
