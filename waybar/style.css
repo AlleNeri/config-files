@@ -104,6 +104,12 @@ window#waybar.hidden {
 	background: #FAE3B0;
 }
 
+@keyframes green-blink {
+	to {
+		background: #0a0;
+	}
+}
+
 #battery.charging, #battery.plugged {
 	border: 2px solid #0a0;
 	animation-name: green-blink;
@@ -113,10 +119,10 @@ window#waybar.hidden {
     	animation-direction: alternate;
 }
 
-@keyframes green-blink {
-	to {
-		background: #0a0;
-	}
+@keyframes red-blink {
+    to {
+	    background: #a00;
+    }
 }
 
 #battery.critical:not(.charging) {
@@ -128,10 +134,41 @@ window#waybar.hidden {
     	animation-direction: alternate;
 }
 
-@keyframes red-blink {
+@keyframes orange-blink {
     to {
-	    background: #a00;
+	    background: #ffa500;
     }
+}
+
+#battery.warning:not(.charging) {
+	border: 2px solid #ffa500;
+    	animation-name: orange-blink;
+    	animation-duration: 0.8s;
+    	animation-timing-function: ease-in-out;
+    	animation-iteration-count: infinite;
+    	animation-direction: alternate;
+}
+
+/* #custom-wallpaper { */
+#temperature {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	margin-bottom: 0px;
+	padding-right: 10px;
+	border-radius: 10px;
+	transition: none;
+	color: #161320;
+	background: #96CDFB;
+}
+
+#temperature.critical {
+	border: 2px solid #a00;
+    	animation-name: red-blink;
+    	animation-duration: 0.5s;
+    	animation-timing-function: ease-in-out;
+    	animation-iteration-count: infinite;
+    	animation-direction: alternate;
 }
 
 #backlight {
@@ -218,19 +255,6 @@ window#waybar.hidden {
 	transition: none;
 	color: #161320;
 	background: #F28FAD;
-}
-
-/* #custom-wallpaper { */
-#temperature {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	margin-bottom: 0px;
-	padding-right: 10px;
-	border-radius: 10px;
-	transition: none;
-	color: #161320;
-	background: #96CDFB;
 }
 
 #custom-updates {
